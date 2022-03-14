@@ -9,6 +9,11 @@ export default {
         Button,
         BookInfo,
     },
+    methods: {
+        destroy() {
+            this.$emit("destroy", this.book.id);
+        },
+    },
 };
 </script>
 <template>
@@ -17,7 +22,9 @@ export default {
             <BookInfo :title="book.title" :author="book.author" />
             <div class="d-flex justify-content-end gap-1 pt-4">
                 <Button type="primary" size="small">Update</Button>
-                <Button type="danger" size="small">Delete</Button>
+                <Button @click="destroy" type="danger" size="small">
+                    Delete
+                </Button>
             </div>
         </div>
     </div>

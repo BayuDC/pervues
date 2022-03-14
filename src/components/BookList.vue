@@ -1,8 +1,9 @@
-<script>
+<script setup>
 import BookCard from "./BookCard.vue";
 import Floating from "./Floating.vue";
 import Button from "./Button.vue";
-
+</script>
+<script>
 export default {
     name: "BookList",
     props: ["books"],
@@ -10,6 +11,19 @@ export default {
         BookCard,
         Button,
         Floating,
+    },
+    methods: {
+        destroy(id) {
+            this.books = this.books.filter((book) => book.id != id);
+        },
+    },
+    data() {
+        return {
+            books: [],
+        };
+    },
+    created() {
+        this.books = this.$props.books;
     },
 };
 </script>
@@ -21,7 +35,7 @@ export default {
             :key="book.id"
             class="col-md-3 col-sm-4 col-12"
         >
-            <BookCard :book="book" />
+            <BookCard :book="book" @destroy="destroy" />
         </div>
     </div>
 
