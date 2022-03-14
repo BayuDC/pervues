@@ -1,11 +1,13 @@
 <script>
 import BookCard from "./BookCard.vue";
+import Button from "./Button.vue";
 
 export default {
     name: "BookList",
     props: ["books"],
     components: {
         BookCard,
+        Button,
     },
 };
 </script>
