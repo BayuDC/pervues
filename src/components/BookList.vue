@@ -21,7 +21,7 @@ export default {
             :key="book.id"
             class="col-md-3 col-sm-4 col-12"
         >
-            <BookCard :title="book.title" :author="book.author" />
+            <BookCard :book="book" />
         </div>
     </div>
 

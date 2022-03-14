@@ -1,19 +1,20 @@
 <script>
 import Button from "./Button.vue";
+import BookInfo from "./BookInfo.vue";
 
 export default {
     name: "BookCard",
-    props: ["title", "author"],
+    props: ["book"],
     components: {
         Button,
+        BookInfo,
     },
 };
 </script>
 <template>
-    <div class="card border-dark">
+    <div class="card border-dark mb-3">
         <div class="card-body">
-            <h5 class="card-title">{{ title }}</h5>
-            <h6 class="card-subtitle mb-2">{{ author }}</h6>
+            <BookInfo :title="book.title" :author="book.author" />
             <div class="d-flex justify-content-end gap-1 pt-4">
                 <Button type="primary" size="small">Update</Button>
                 <Button type="danger" size="small">Delete</Button>
