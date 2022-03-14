@@ -1,5 +1,6 @@
 <script>
 import BookCard from "./BookCard.vue";
+import Floating from "./Floating.vue";
 import Button from "./Button.vue";
 
 export default {
@@ -8,6 +9,7 @@ export default {
     components: {
         BookCard,
         Button,
+        Floating,
     },
 };
 </script>
@@ -22,4 +24,8 @@ export default {
             <BookCard :title="book.title" :author="book.author" />
         </div>
     </div>
+
+    <Floating>
+        <Button type="success">Add Book</Button>
+    </Floating>
 </template>
