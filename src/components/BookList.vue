@@ -26,6 +26,6 @@ export default {
     </div>
 
     <Floating>
-        <Button type="success">Add Book</Button>
+        <Button type="success" size="large">Add Book</Button>
     </Floating>
 </template>
