@@ -1,9 +1,9 @@
 <script>
-import Navbar from './components/Navbar.vue';
-import BookList from './components/BookList.vue';
+import Navbar from "./components/Navbar.vue";
+import BookList from "./components/BookList.vue";
 
 export default {
-    name: 'App',
+    name: "App",
     components: {
         Navbar,
         BookList,
@@ -11,10 +11,10 @@ export default {
     data() {
         return {
             books: [
-                { id: 1, title: 'Buku Keren', author: 'Saya Sendiri' },
-                { id: 2, title: 'Buku Keren Lagi', author: 'Saya Sendiri' },
-                { id: 3, title: 'Buku Rusak', author: 'Temen Saya' },
-                { id: 4, title: 'Ga Ada Judulnya', author: 'Ga Tau Siapa' },
+                { id: 0, title: "Buku Keren", author: "Saya Sendiri" },
+                { id: 1, title: "Buku Keren Lagi", author: "Saya Sendiri" },
+                { id: 2, title: "Buku Rusak", author: "Temen Saya" },
+                { id: 3, title: "Ga Ada Judulnya", author: "Ga Tau Siapa" },
             ],
         };
     },

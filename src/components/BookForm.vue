@@ -9,8 +9,8 @@ export default {
     props: ["text"],
     methods: {
         onSubmit() {
-            console.log(this.title);
-            console.log(this.author);
+            this.$emit("save", this.title, this.author);
+            this.title = this.author = "";
         },
     },
     data() {
