@@ -1,7 +1,6 @@
 <script setup>
 import BookInfo from './BookInfo.vue';
 import BookForm from './BookForm.vue';
-import Floating from './Floating.vue';
 import Button from './Button.vue';
 </script>
 <script>
@@ -12,7 +11,6 @@ export default {
         BookInfo,
         BookForm,
         Button,
-        Floating,
     },
     methods: {
         destroy(id) {
@@ -39,8 +37,4 @@ export default {
             <BookForm />
         </div>
     </div>
-
-    <Floating>
-        <Button type="success" size="large">Add Book</Button>
-    </Floating>
 </template>
