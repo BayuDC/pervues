@@ -28,6 +28,9 @@ export default {
             book.author = author;
             book.editMode = undefined;
         },
+        deleteBook(id) {
+            this.books = this.books.filter((book) => book.id != id);
+        },
     },
 };
 </script>
@@ -40,7 +43,7 @@ export default {
             class="col-md-3 col-sm-4 col-12"
         >
             <BookForm v-if="book.editMode" :book="book" @save="editBook" />
-            <BookInfo v-else :book="book" />
+            <BookInfo v-else :book="book" @destroy="deleteBook" />
         </div>
         <div class="col-md-3 col-sm-4 col-12">
             <BookForm @save="addBook" />

@@ -13,7 +13,7 @@ export default {
 
         return {
             books: [
-                { id: now, title: "Buku Keren", author: "Saya Sendiri" },
+                { id: now++, title: "Buku Keren", author: "Saya Sendiri" },
                 { id: now++, title: "Buku Keren Lagi", author: "Saya Sendiri" },
                 { id: now++, title: "Buku Rusak", author: "Temen Saya" },
                 { id: now++, title: "Ga Ada Judulnya", author: "Ga Tau Siapa" },

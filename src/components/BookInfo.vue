@@ -22,7 +22,13 @@ export default {
             <Button @click="book.editMode = true" type="primary" size="small">
                 Edit
             </Button>
-            <Button type="danger" size="small">Delete</Button>
+            <Button
+                @click="$emit('destroy', book.id)"
+                type="danger"
+                size="small"
+            >
+                Delete
+            </Button>
         </template>
     </BookCard>
 </template>
