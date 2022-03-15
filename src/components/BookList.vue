@@ -1,5 +1,6 @@
 <script setup>
-import BookCard from './BookCard.vue';
+import BookInfo from './BookInfo.vue';
+import BookForm from './BookForm.vue';
 import Floating from './Floating.vue';
 import Button from './Button.vue';
 </script>
@@ -8,7 +9,8 @@ export default {
     name: 'BookList',
     props: ['books'],
     components: {
-        BookCard,
+        BookInfo,
+        BookForm,
         Button,
         Floating,
     },
@@ -31,10 +33,10 @@ export default {
 <template>
     <div class="row">
         <div v-for="book in books" :key="book.id" class="col-md-3 col-sm-4 col-12">
-            <BookCard :book="book" @destroy="destroy" />
+            <BookInfo :book="book" />
         </div>
         <div class="col-md-3 col-sm-4 col-12">
-            <BookCard :book="null" />
+            <BookForm />
         </div>
     </div>
 

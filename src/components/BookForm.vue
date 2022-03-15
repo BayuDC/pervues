@@ -1,8 +1,11 @@
 <script>
+import BookCard from './BookCard.vue';
+import Button from './Button.vue';
 import Input from './Input.vue';
+
 export default {
     name: 'BookForm',
-    components: { Input },
+    components: { Input, Button, BookCard },
     method: {
         submit() {},
     },
@@ -11,7 +14,14 @@ export default {
 
 <template>
     <form @submit.prevent="submit">
-        <Input name="Title" />
-        <Input name="Author" />
+        <BookCard>
+            <template #default>
+                <Input name="Title" />
+                <Input name="Author" />
+            </template>
+            <template #btn-group>
+                <Button type="success" size="small">Save</Button>
+            </template>
+        </BookCard>
     </form>
 </template>
