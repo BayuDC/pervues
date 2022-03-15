@@ -34,7 +34,7 @@ export default {
             <BookInfo :book="book" />
         </div>
         <div class="col-md-3 col-sm-4 col-12">
-            <BookForm />
+            <BookForm text="Add Book" />
         </div>
     </div>
 </template>
