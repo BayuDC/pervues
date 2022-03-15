@@ -1,9 +1,8 @@
-<script setup>
+<script>
 import BookInfo from "./BookInfo.vue";
 import BookForm from "./BookForm.vue";
 import Button from "./Button.vue";
-</script>
-<script>
+
 export default {
     name: "BookList",
     props: ["books"],
@@ -12,18 +11,21 @@ export default {
         BookForm,
         Button,
     },
-    methods: {
-        addBook(title, author) {
-            this.books.push({ id: this.books.length, title, author });
-        },
+    created() {
+        this.books = this.$props.books;
     },
     data() {
-        return {
-            books: [],
-        };
+        return { books: [] };
     },
-    mounted() {
-        this.books = this.$props.books;
+    methods: {
+        addBook({ title, author }) {
+            this.books.push({ id: this.books.length, title, author });
+        },
+        editBook({ id, title, author }) {
+            this.books[id].title = title;
+            this.books[id].author = author;
+            this.books[id].editMode = undefined;
+        },
     },
 };
 </script>
@@ -35,10 +37,11 @@ export default {
             :key="book.id"
             class="col-md-3 col-sm-4 col-12"
         >
-            <BookInfo :book="book" />
+            <BookForm v-if="book.editMode" :book="book" @save="editBook" />
+            <BookInfo v-else :book="book" />
         </div>
         <div class="col-md-3 col-sm-4 col-12">
-            <BookForm @save="addBook" text="Add Book" />
+            <BookForm @save="addBook" />
         </div>
     </div>
 </template>

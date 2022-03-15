@@ -6,17 +6,21 @@ import Input from "./Input.vue";
 export default {
     name: "BookForm",
     components: { Input, Button, BookCard },
-    props: ["text"],
+    props: ["book"],
     methods: {
         onSubmit() {
-            this.$emit("save", this.title, this.author);
+            this.$emit("save", {
+                id: this.book?.id,
+                title: this.title,
+                author: this.author,
+            });
             this.title = this.author = "";
         },
     },
     data() {
         return {
-            title: "",
-            author: "",
+            title: this.book?.title || "",
+            author: this.book?.author || "",
         };
     },
 };
@@ -26,7 +30,10 @@ export default {
     <form @submit.prevent="onSubmit">
         <BookCard>
             <template #default>
-                <h5 class="card-title">{{ text }}</h5>
+                <h5 class="card-title">
+                    <template v-if="this.book">Edit Book</template>
+                    <template v-else>Add Book</template>
+                </h5>
 
                 <Input v-model="title" label="Title" name="title" />
                 <Input v-model="author" label="Author" name="author" />
