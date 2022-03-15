@@ -1,30 +1,31 @@
 <script>
-import Button from "./Button.vue";
-import BookInfo from "./BookInfo.vue";
+import Button from './Button.vue';
+import BookInfo from './BookInfo.vue';
+import BookForm from './BookForm.vue';
 
 export default {
-    name: "BookCard",
-    props: ["book"],
+    name: 'BookCard',
+    props: ['book'],
     components: {
         Button,
         BookInfo,
+        BookForm,
     },
     methods: {
         destroy() {
-            this.$emit("destroy", this.book.id);
+            this.$emit('destroy', this.book.id);
         },
     },
 };
 </script>
 <template>
-    <div class="card border-dark mb-3">
+    <div class="card border-dark mb-sm-4 mb-3">
         <div class="card-body">
-            <BookInfo :title="book.title" :author="book.author" />
-            <div class="d-flex justify-content-end gap-1 pt-4">
+            <BookInfo v-if="book" :title="book.title" :author="book.author" />
+            <BookForm v-else />
+            <div v-if="book" class="d-flex justify-content-end gap-1 pt-4">
                 <Button type="primary" size="small">Update</Button>
-                <Button @click="destroy" type="danger" size="small">
-                    Delete
-                </Button>
+                <Button @click="destroy" type="danger" size="small"> Delete </Button>
             </div>
         </div>
     </div>

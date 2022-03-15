@@ -1,7 +1,7 @@
 <script>
 export default {
-    name: "BookInfo",
-    props: ["title", "author"],
+    name: 'BookInfo',
+    props: ['title', 'author'],
 };
 </script>
 

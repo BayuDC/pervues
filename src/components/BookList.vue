@@ -1,12 +1,12 @@
 <script setup>
-import BookCard from "./BookCard.vue";
-import Floating from "./Floating.vue";
-import Button from "./Button.vue";
+import BookCard from './BookCard.vue';
+import Floating from './Floating.vue';
+import Button from './Button.vue';
 </script>
 <script>
 export default {
-    name: "BookList",
-    props: ["books"],
+    name: 'BookList',
+    props: ['books'],
     components: {
         BookCard,
         Button,
@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         destroy(id) {
-            this.books = this.books.filter((book) => book.id != id);
+            this.books = this.books.filter(book => book.id != id);
         },
     },
     data() {
@@ -30,12 +30,11 @@ export default {
 
 <template>
     <div class="row">
-        <div
-            v-for="book in books"
-            :key="book.id"
-            class="col-md-3 col-sm-4 col-12"
-        >
+        <div v-for="book in books" :key="book.id" class="col-md-3 col-sm-4 col-12">
             <BookCard :book="book" @destroy="destroy" />
+        </div>
+        <div class="col-md-3 col-sm-4 col-12">
+            <BookCard :book="null" />
         </div>
     </div>
 
