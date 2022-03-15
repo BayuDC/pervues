@@ -9,12 +9,14 @@ export default {
         BookList,
     },
     data() {
+        let now = Date.now();
+
         return {
             books: [
-                { id: 0, title: "Buku Keren", author: "Saya Sendiri" },
-                { id: 1, title: "Buku Keren Lagi", author: "Saya Sendiri" },
-                { id: 2, title: "Buku Rusak", author: "Temen Saya" },
-                { id: 3, title: "Ga Ada Judulnya", author: "Ga Tau Siapa" },
+                { id: now, title: "Buku Keren", author: "Saya Sendiri" },
+                { id: now++, title: "Buku Keren Lagi", author: "Saya Sendiri" },
+                { id: now++, title: "Buku Rusak", author: "Temen Saya" },
+                { id: now++, title: "Ga Ada Judulnya", author: "Ga Tau Siapa" },
             ],
         };
     },

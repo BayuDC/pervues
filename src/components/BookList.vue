@@ -19,12 +19,14 @@ export default {
     },
     methods: {
         addBook({ title, author }) {
-            this.books.push({ id: this.books.length, title, author });
+            this.books.push({ id: Date.now(), title, author });
         },
         editBook({ id, title, author }) {
-            this.books[id].title = title;
-            this.books[id].author = author;
-            this.books[id].editMode = undefined;
+            const book = this.books.find((book) => book.id == id);
+
+            book.title = title;
+            book.author = author;
+            book.editMode = undefined;
         },
     },
 };
